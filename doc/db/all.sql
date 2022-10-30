@@ -1,3 +1,4 @@
+use wikidev;
 drop table if exists `test`;
 
 create table `test`
@@ -8,4 +9,8 @@ create table `test`
     primary key (`id`)
 ) engine = INNODB
   default charset = utf8mb4
-  comment = '测试'
+  comment = '测试';
+
+insert into `test`(id, name, password) value (1,'测试','123456');
+
+select * from `test`;
