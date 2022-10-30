@@ -1,5 +1,13 @@
+<script lang="ts" setup>
+
+</script>
+
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h2>about</h2>
   </div>
 </template>
+
+<style lang="less" scoped>
+
+</style>
