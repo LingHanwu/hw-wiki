@@ -6,7 +6,7 @@ test:
 #数据库连接
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/wikidev?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai
     username: wikiUser
     password: wiki
     driver-class-name: com.mysql.cj.jdbc.Driver
