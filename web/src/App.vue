@@ -51,7 +51,9 @@
         </a-menu>
       </a-layout-sider>
       <a-layout style="padding: 0 24px 24px">
+        <h3>111</h3>
         <router-view></router-view>
+        <theHeaderVue></theHeaderVue>
       </a-layout>
 
     </a-layout>
@@ -64,11 +66,13 @@
 <script lang="ts">
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
 import { defineComponent, ref } from 'vue';
+import theHeaderVue from './components/the-header.vue';
 export default defineComponent({
   components: {
     UserOutlined,
     LaptopOutlined,
     NotificationOutlined,
+    theHeaderVue
   },
   setup() {
     return {
