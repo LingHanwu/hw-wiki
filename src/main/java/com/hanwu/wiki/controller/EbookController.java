@@ -1,6 +1,7 @@
 package com.hanwu.wiki.controller;
 
 import com.hanwu.wiki.domain.Ebook;
+import com.hanwu.wiki.req.EbookReq;
 import com.hanwu.wiki.resp.CommonResp;
 import com.hanwu.wiki.service.EbookService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +25,9 @@ public class EbookController {
     EbookService ebookService;
 
     @GetMapping("/list")
-    public CommonResp<List<Ebook>> list(String name){
+    public CommonResp<List<Ebook>> list(EbookReq ebookReq){
         CommonResp<List<Ebook>> resp = new CommonResp<>();
-        List<Ebook> list = ebookService.list(name);
+        List<Ebook> list = ebookService.list(ebookReq);
 
         resp.setContent(list);
         return resp;

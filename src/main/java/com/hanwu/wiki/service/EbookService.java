@@ -3,6 +3,7 @@ package com.hanwu.wiki.service;
 import com.hanwu.wiki.domain.Ebook;
 import com.hanwu.wiki.domain.EbookExample;
 import com.hanwu.wiki.mapper.EbookMapper;
+import com.hanwu.wiki.req.EbookReq;
 import lombok.val;
 import org.springframework.stereotype.Service;
 
@@ -20,14 +21,14 @@ public class EbookService {
     @Resource
     private EbookMapper ebookMapper;
 
-    public List<Ebook> list(String name){
+    public List<Ebook> list(EbookReq req){
 //        固定写法
 //        EbookExample ebookExample = new EbookExample();
 //        EbookExample.Criteria criteria = ebookExample.createCriteria();
         val ebookExample = new EbookExample();
         val criteria = ebookExample.createCriteria();
 //        模糊匹配
-        criteria.andNameLike("%" + name + "%");
+        criteria.andNameLike("%" + req.getName() + "%");
         return ebookMapper.selectByExample(ebookExample);
     }
 
