@@ -10,3 +10,8 @@ spring:
     username: wikiUser
     password: wiki
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+#配置mybatis所有mapper.xml所在的路径
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
