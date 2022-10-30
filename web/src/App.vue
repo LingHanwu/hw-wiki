@@ -1,13 +1,6 @@
 <template>
   <a-layout>
-    <a-layout-header class="header">
-      <div class="logo" />
-      <a-menu v-model:selectedKeys="selectedKeys1" theme="dark" mode="horizontal" :style="{ lineHeight: '64px' }">
-        <a-menu-item key="1">nav 1</a-menu-item>
-        <a-menu-item key="2">nav 2</a-menu-item>
-        <a-menu-item key="3">nav 3</a-menu-item>
-      </a-menu>
-    </a-layout-header>
+    <theHeaderVue></theHeaderVue>
     <a-layout>
       <a-layout-sider width="200" style="background: #fff">
         <a-menu v-model:selectedKeys="selectedKeys2" v-model:openKeys="openKeys" mode="inline"
@@ -53,13 +46,10 @@
       <a-layout style="padding: 0 24px 24px">
         <h3>111</h3>
         <router-view></router-view>
-        <theHeaderVue></theHeaderVue>
       </a-layout>
 
     </a-layout>
-    <a-layout-footer style="text-align: center">
-      寒舞电子书
-    </a-layout-footer>
+    <theFooterVue></theFooterVue>
   </a-layout>
 </template>
 
@@ -67,12 +57,14 @@
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
 import { defineComponent, ref } from 'vue';
 import theHeaderVue from './components/the-header.vue';
+import theFooterVue from './components/the-footer.vue';
 export default defineComponent({
   components: {
     UserOutlined,
     LaptopOutlined,
     NotificationOutlined,
-    theHeaderVue
+    theHeaderVue,
+    theFooterVue
   },
   setup() {
     return {
