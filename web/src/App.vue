@@ -44,7 +44,6 @@
         </a-menu>
       </a-layout-sider>
       <a-layout style="padding: 0 24px 24px">
-        <h3>111</h3>
         <router-view></router-view>
       </a-layout>
 
