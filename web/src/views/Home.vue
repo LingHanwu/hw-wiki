@@ -8,7 +8,7 @@ const ebooks = ref()
 
 // 生命周期
 onMounted(() => {
-  axios.get("http://127.0.0.1:8080/ebook/list?name=Python").then((response) => {
+  axios.get("http://127.0.0.1:8080/ebook/list").then((response) => {
     const data = response.data;
     ebooks.value = data.content;
   })
@@ -16,17 +16,6 @@ onMounted(() => {
 
 const listData: Record<string, string>[] = [];
 
-/* for (let i = 0; i < 23; i++) {
-  listData.push({
-    href: 'https://www.antdv.com/',
-    title: `ant design vue part ${i}`,
-    avatar: 'https://joeschmoe.io/api/v1/random',
-    description:
-      'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    content:
-      'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-  });
-} */
 const pagination = {
   onChange: (page: number) => {
     console.log(page);
@@ -45,7 +34,8 @@ const actions: Record<string, string>[] = [
 </script>
 <template>
   <div class="home">
-    <a-list item-layout="vertical" size="large" :pagination="pagination" :data-source="ebooks" :grid="{ gutter: 20, column: 3 }">
+    <a-list item-layout="vertical" size="large" :pagination="pagination" :data-source="ebooks"
+      :grid="{ gutter: 20, column: 3 }">
       <template #footer>
         <div>
           <b>ant design vue</b>
@@ -79,6 +69,13 @@ const actions: Record<string, string>[] = [
   </div>
 </template>
 
-<style lang="less" scoped>
-
+<style scoped>
+/* 封面图标样式 */
+.ant-avatar {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 8%;
+  margin: 5px 0;
+}
 </style>
