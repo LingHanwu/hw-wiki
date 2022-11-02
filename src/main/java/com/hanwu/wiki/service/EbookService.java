@@ -7,6 +7,7 @@ import com.hanwu.wiki.resp.EbookResp;
 import com.hanwu.wiki.utils.CopyUtil;
 import lombok.val;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -28,8 +29,14 @@ public class EbookService {
 //        EbookExample.Criteria criteria = ebookExample.createCriteria();
         val ebookExample = new EbookExample();
         val criteria = ebookExample.createCriteria();
+
+//        动态sql,如果参数不为空,则添加模糊查询条件
+        if(!ObjectUtils.isEmpty(req.getName())){
 //        模糊匹配
-        criteria.andNameLike("%" + req.getName() + "%");
+            criteria.andNameLike("%" + req.getName() + "%");
+        }
+
+
 //        查询结果
         val ebookList = ebookMapper.selectByExample(ebookExample);
 //        val respList = new ArrayList<EbookResp>();
